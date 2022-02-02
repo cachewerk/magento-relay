@@ -97,8 +97,6 @@ class RelaySessionHandler extends Handler
 
             return true;
         } catch (Exception $e) {
-            throw $e;
-
             $this->logger->logException($e);
             $this->_log('Unable to connect to Redis');
 
