@@ -26,7 +26,7 @@ class Handler implements SessionHandlerInterface
         LoggerInterface $logger,
         Filesystem $filesystem
     ) {
-        if ($this->config->getClient() === 'relay') {
+        if ($config->getClient() === 'relay') {
             $this->connection = new RelaySessionHandler($config, $logger);
         } else {
             $this->connection = new RedisSessionHandler($config, $logger, $filesystem);
