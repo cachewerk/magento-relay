@@ -4,9 +4,11 @@ namespace CacheWerk\Relay\Session;
 
 use Cm\RedisSession\Handler\ConfigInterface;
 
+use Magento\Framework\App\Area;
 use Magento\Framework\App\State;
 use Magento\Framework\App\DeploymentConfig;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Store\Model\ScopeInterface as StoreScopeInterface;
 use Magento\Framework\Session\SaveHandler\Redis\Config as RedisConfig;
 
 class Config extends RedisConfig implements ConfigInterface
@@ -195,7 +197,7 @@ class Config extends RedisConfig implements ConfigInterface
      */
     public function getLifetime()
     {
-        if ($this->appState->getAreaCode() == \Magento\Framework\App\Area::AREA_ADMINHTML) {
+        if ($this->appState->getAreaCode() == Area::AREA_ADMINHTML) {
             return (int)$this->scopeConfig->getValue(self::XML_PATH_ADMIN_SESSION_LIFETIME);
         }
 
