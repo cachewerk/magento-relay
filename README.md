@@ -35,6 +35,7 @@ To use Relay as the session backend, simply set `session.redis.client` to `relay
 +       'client' => 'relay',
         'host' => '127.0.0.1',
         'port' => 6379,
+        'database' => 2,
         // ...
     ]
 ],
@@ -55,6 +56,7 @@ Relay can be used for any Redis-enabled cache backend in your `app/etc/env.php`:
                 'server' => '127.0.0.1',
                 'port' => 6379,
                 'database' => 0,
+                // ...
             ]
         ],
         'page_cache' => [
@@ -65,6 +67,7 @@ Relay can be used for any Redis-enabled cache backend in your `app/etc/env.php`:
                 'server' => '127.0.0.1',
                 'port' => 6379,
                 'database' => 1,
+                // ...
             ]
         ]
     ],
