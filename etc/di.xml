@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config>
+    <preference for="Cm\RedisSession\Handler\ConfigInterface" type="CacheWerk\Relay\Session\Config" />
+    <preference for="Magento\Framework\Session\SaveHandler\Redis" type="CacheWerk\Relay\Session\Handler" />
+</config>

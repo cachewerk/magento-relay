@@ -1,0 +1,21 @@
+{
+	"name" : "cachewerk/magento-relay",
+	"description" : "A Magento 2 module to integrate Relay.",
+    "homepage": "https://relaycache.com",
+	"type" : "magento2-module",
+	"version" : "1.0.0",
+	"license" : "MIT",
+	"require" : {
+        "php": "^7.3|^7.4|^8.0",
+        "ext-relay": "*",
+		"magento/framework": ">=100.0.0"
+	},
+	"autoload" : {
+		"files" : [
+			"registration.php"
+		],
+		"psr-4" : {
+			"CacheWerk\\Relay\\" : ""
+		}
+	}
+}
