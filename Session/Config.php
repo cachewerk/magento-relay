@@ -30,7 +30,7 @@ class Config extends RedisConfig implements ConfigInterface
      * Configuration path for client.
      */
     const PARAM_CLIENT = 'session/redis/client';
-    
+
     /**
      * {@inheritdoc}
      */
@@ -53,7 +53,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_CLIENT);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -61,7 +61,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_LOG_LEVEL);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -69,7 +69,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_HOST);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -77,7 +77,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_PORT);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -85,7 +85,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_DATABASE);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -93,7 +93,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_PASSWORD);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -101,7 +101,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_TIMEOUT);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -109,7 +109,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_PERSISTENT_IDENTIFIER);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -117,7 +117,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_COMPRESSION_THRESHOLD);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -125,7 +125,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_COMPRESSION_LIBRARY);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -133,7 +133,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_MAX_CONCURRENCY);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -141,7 +141,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return self::SESSION_MAX_LIFETIME;
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -149,7 +149,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_MIN_LIFETIME);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -157,7 +157,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_DISABLE_LOCKING);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -165,7 +165,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_BOT_LIFETIME);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -173,7 +173,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_BOT_FIRST_LIFETIME);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -181,7 +181,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_FIRST_LIFETIME);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -189,7 +189,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_BREAK_AFTER . '_' . $this->appState->getAreaCode());
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -201,7 +201,7 @@ class Config extends RedisConfig implements ConfigInterface
 
         return (int)$this->scopeConfig->getValue(self::XML_PATH_COOKIE_LIFETIME, StoreScopeInterface::SCOPE_STORE);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -209,7 +209,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_SENTINEL_SERVERS);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -217,7 +217,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_SENTINEL_MASTER);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -225,7 +225,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_SENTINEL_VERIFY_MASTER);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -233,7 +233,7 @@ class Config extends RedisConfig implements ConfigInterface
     {
         return $this->deploymentConfig->get(self::PARAM_SENTINEL_CONNECT_RETRIES);
     }
-    
+
     /**
      * @inheritdoc
      */
