@@ -71,6 +71,14 @@ class RelaySessionHandler extends Handler
     /**
      * {@inheritdoc}
      */
+    public function close()
+    {
+        return true;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     protected function hasConnection()
     {
         $host = $this->config->getHost() ?: self::DEFAULT_HOST;
