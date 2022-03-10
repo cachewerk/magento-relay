@@ -25,7 +25,7 @@ class Relay extends Redis
         $this->preloadKeys = $options['preload_keys'] ?? [];
 
         if (empty($options['server']) && empty($options['cluster'])) {
-            Zend_Cache::throwException('Redis "server" not specified.');
+            Zend_Cache::throwException('No Redis `server` specified.');
         }
 
         $this->_clientOptions = $this->getClientOptions($options);
@@ -52,7 +52,7 @@ class Relay extends Redis
         $this->_redis = new CredisProxy($relay);
 
         if (isset($options['load_from_slave'])) {
-            Zend_Cache::throwException('Relay does not support the "load_from_slave" option.');
+            Zend_Cache::throwException('Relay does not support the `load_from_slave` option.');
         }
 
         if (isset($options['notMatchingTags'])) {
@@ -90,14 +90,14 @@ class Relay extends Redis
         } elseif (function_exists('snappy_compress')) {
             $this->_compressionLib = 'snappy';
         } elseif (function_exists('lz4_compress')) {
-            if (version_compare(phpversion('lz4'), "0.3.0") < 0) {
+            if (version_compare(phpversion('lz4'), '0.3.0') < 0) {
                 $this->_compressTags = $this->_compressTags > 1 ? true : false;
                 $this->_compressData = $this->_compressData > 1 ? true : false;
             }
 
             $this->_compressionLib = 'l4z';
         } elseif (function_exists('zstd_compress')) {
-            if (version_compare(phpversion('zstd'), "0.4.13") < 0) {
+            if (version_compare(phpversion('zstd'), '0.4.13') < 0) {
                 $this->_compressTags = $this->_compressTags > 1 ? true : false;
                 $this->_compressData = $this->_compressData > 1 ? true : false;
             }

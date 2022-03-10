@@ -59,7 +59,7 @@ class RelaySessionHandler extends Handler
 
         $this->_log(
             sprintf(
-                "%s initialized for connection to %s:%s after %.5f seconds",
+                '%s initialized for connection to %s:%s after %.5f seconds',
                 get_class($this),
                 $this->_redis->getHost(),
                 $this->_redis->getPort(),
