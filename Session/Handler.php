@@ -36,8 +36,8 @@ class Handler implements SessionHandlerInterface
     /**
      * Open session.
      *
-     * @param string $savePath ignored
-     * @param string $sessionName ignored
+     * @param string $savePath
+     * @param string $sessionName
      * @return bool
      * @throws Magento\Framework\Exception\SessionException
      */
@@ -102,7 +102,7 @@ class Handler implements SessionHandlerInterface
     /**
      * Garbage collection.
      *
-     * @param int $maxLifeTime ignored
+     * @param int $maxLifeTime
      * @return boolean
      * @throws Magento\Framework\Exception\SessionException
      */

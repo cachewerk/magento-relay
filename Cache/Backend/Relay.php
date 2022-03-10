@@ -87,7 +87,7 @@ class Relay extends Redis
 
         if (isset($options['compression_lib'])) {
             $this->_compressionLib = (string) $options['compression_lib'];
-        } elseif (function_exists('snappy_compress') ) {
+        } elseif (function_exists('snappy_compress')) {
             $this->_compressionLib = 'snappy';
         } elseif (function_exists('lz4_compress')) {
             if (version_compare(phpversion('lz4'), "0.3.0") < 0) {
