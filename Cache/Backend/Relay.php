@@ -40,11 +40,13 @@ class Relay extends Redis
 
         $port = isset($options['port']) ? $options['port'] : 6379;
 
-        $this->_redis = new \Relay\Relay;
-        $this->_redis->setOption(\Relay\Relay::OPT_MAX_RETRIES, $this->_clientOptions->connectRetries);
-        $this->_redis->connect($options['server'], $port, $this->_clientOptions->timeout, 0, $this->_clientOptions->readTimeout ?: 0);
+        $relay = new \Relay\Relay;
+        $relay->setOption($relay::OPT_MAX_RETRIES, $this->_clientOptions->connectRetries);
+        $relay->connect($options['server'], $port, $this->_clientOptions->timeout, 0, $this->_clientOptions->readTimeout ?: 0);
 
-        $this->_applyClientOptions($this->_redis);
+        $this->_applyClientOptions($relay);
+
+        $this->_redis = new CredisAdapter($relay);
 
         if (isset($options['load_from_slave'])) {
             Zend_Cache::throwException('Relay does not support the "load_from_slave" option.');
