@@ -41,6 +41,7 @@ class Relay extends Redis
         $port = isset($options['port']) ? $options['port'] : 6379;
 
         $relay = new \Relay\Relay;
+        $relay->setOption($relay::OPT_PHPREDIS_COMPATIBILITY, true);
         $relay->setOption($relay::OPT_MAX_RETRIES, $this->_clientOptions->connectRetries);
         $relay->connect($options['server'], $port, $this->_clientOptions->timeout, 0, $this->_clientOptions->readTimeout ?: 0);
 
