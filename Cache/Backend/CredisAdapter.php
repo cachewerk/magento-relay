@@ -43,8 +43,8 @@ class CredisAdapter
     /**
      * Handle Credis' odd pipeline/multi syntax.
      *
-     * @param  string  $name
-     * @param  array  $args
+     * @param string $name
+     * @param array $args
      * @return mixed
      */
     public function __call($name, $args)
@@ -97,8 +97,8 @@ class CredisAdapter
      * Transform arguments. Mimics what Credis does.
      *
      * @see Credis_Client::__call()
-     * @param  string  $command
-     * @param  array  $args
+     * @param string $command
+     * @param array $args
      * @return array
      */
     protected function _transformArguments(string $command, $args)
@@ -130,8 +130,8 @@ class CredisAdapter
             case 'zinterstore':
             case 'zunionstore':
                 $cArgs = [];
-                $cArgs[] = array_shift($args); // destination
-                $cArgs[] = array_shift($args); // keys
+                $cArgs[] = array_shift($args);
+                $cArgs[] = array_shift($args);
 
                 if (isset($args[0]) && isset($args[0]['weights'])) {
                     $cArgs[] = (array) $args[0]['weights'];
@@ -196,8 +196,8 @@ class CredisAdapter
      * Flatten arguments. Mimics what Credis does.
      *
      * @see Credis_Client::_flattenArguments()
-     * @param  array  $arguments
-     * @param  array  $out
+     * @param array $arguments
+     * @param array &$out
      * @return array
      */
     protected function _flattenArguments(array $arguments, &$out = [])
