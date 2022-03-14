@@ -106,6 +106,10 @@ class RelaySessionHandler extends Handler
                 $this->relay->auth($pass);
             }
 
+            if ($this->_dbNum) {
+                $this->relay->select($this->_dbNum);
+            }
+
             $this->_log('Connected to Redis');
 
             return true;
