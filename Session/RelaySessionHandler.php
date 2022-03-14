@@ -6,6 +6,7 @@ use Exception;
 use LogicException;
 
 use Relay\Relay;
+use CacheWerk\Relay\Credis\CredisProxy;
 
 use Cm\RedisSession\Handler;
 use Cm\RedisSession\ConnectionFailedException;
@@ -15,9 +16,18 @@ use Cm\RedisSession\Handler\LoggerInterface;
 class RelaySessionHandler extends Handler
 {
     /**
+     * The connection used by `Cm\RedisSession\Handler`.
+     *
      * @var Relay
      */
     protected $_redis;
+
+    /**
+     * The Relay instance.
+     *
+     * @var Relay
+     */
+    private $relay;
 
     /**
      * {@inheritdoc}
@@ -51,11 +61,14 @@ class RelaySessionHandler extends Handler
             throw new LogicException('Relay does not support Redis Sentinel.');
         }
 
-        $this->_redis = new Relay;
+        $this->relay = new Relay;
+        $this->relay->setOption(Relay::OPT_PHPREDIS_COMPATIBILITY, true);
 
         if ($this->hasConnection() == false) {
             throw new ConnectionFailedException('Unable to connect to Redis');
         }
+
+        $this->_redis = new CredisProxy($this->relay);
 
         $this->_log(
             sprintf(
@@ -87,10 +100,10 @@ class RelaySessionHandler extends Handler
         $timeout = $this->config->getTimeout() ?: self::DEFAULT_TIMEOUT;
 
         try {
-            $this->_redis->connect($host, $port, $timeout);
+            $this->relay->connect($host, $port, $timeout, '', 0, $timeout);
 
             if ($pass) {
-                $this->_redis->auth($pass);
+                $this->relay->auth($pass);
             }
 
             $this->_log('Connected to Redis');
