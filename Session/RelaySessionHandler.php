@@ -6,7 +6,8 @@ use Exception;
 use LogicException;
 
 use Relay\Relay;
-use CacheWerk\Relay\Credis\CredisProxy;
+
+use CacheWerk\Relay\Credis\RelayCredisAdapter;
 
 use Cm\RedisSession\Handler;
 use Cm\RedisSession\Handler\ConfigInterface;
@@ -68,7 +69,7 @@ class RelaySessionHandler extends Handler
             throw new ConnectionFailedException('Unable to connect to Redis');
         }
 
-        $this->_redis = new CredisProxy($this->relay);
+        $this->_redis = new RelayCredisAdapter($this->relay);
 
         $this->_log(
             sprintf(

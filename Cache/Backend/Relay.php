@@ -4,7 +4,7 @@ namespace CacheWerk\Relay\Cache\Backend;
 
 use Zend_Cache;
 
-use CacheWerk\Relay\Credis\CredisProxy;
+use CacheWerk\Relay\Credis\RelayCredisAdapter;
 
 use Magento\Framework\Cache\Backend\Redis;
 
@@ -49,7 +49,7 @@ class Relay extends Redis
 
         $this->_applyClientOptions($relay);
 
-        $this->_redis = new CredisProxy($relay);
+        $this->_redis = new RelayCredisAdapter($relay);
 
         if (isset($options['load_from_slave'])) {
             Zend_Cache::throwException('Relay does not support the `load_from_slave` option.');
