@@ -9,9 +9,9 @@ use Relay\Relay;
 use CacheWerk\Relay\Credis\CredisProxy;
 
 use Cm\RedisSession\Handler;
-use Cm\RedisSession\ConnectionFailedException;
 use Cm\RedisSession\Handler\ConfigInterface;
 use Cm\RedisSession\Handler\LoggerInterface;
+use Cm\RedisSession\ConnectionFailedException;
 
 class RelaySessionHandler extends Handler
 {
@@ -64,7 +64,7 @@ class RelaySessionHandler extends Handler
         $this->relay = new Relay;
         $this->relay->setOption(Relay::OPT_PHPREDIS_COMPATIBILITY, true);
 
-        if ($this->hasConnection() == false) {
+        if (! $this->hasConnection()) {
             throw new ConnectionFailedException('Unable to connect to Redis');
         }
 
@@ -113,8 +113,8 @@ class RelaySessionHandler extends Handler
             $this->_log('Connected to Redis');
 
             return true;
-        } catch (Exception $e) {
-            $this->logger->logException($e);
+        } catch (Exception $exception) {
+            $this->logger->logException($exception);
             $this->_log('Unable to connect to Redis');
 
             return false;
