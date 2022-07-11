@@ -2,7 +2,7 @@
 
 ## Installation
 
-First, [install Relay](https://relaycache.com/docs/installation) as a PHP extension for your CLI and FPM environments.
+First, [install Relay](https://relay.so/docs/installation) as a PHP extension for your CLI and FPM environments.
 
 Next, install the Magento module:
 

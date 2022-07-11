@@ -1,7 +1,7 @@
 {
 	"name" : "cachewerk/magento-relay",
 	"description" : "A Magento 2 module to integrate Relay.",
-    "homepage": "https://relaycache.com",
+    "homepage": "https://relay.so",
 	"type" : "magento2-module",
 	"version" : "1.0.0",
 	"license" : "MIT",
