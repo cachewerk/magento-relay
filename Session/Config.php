@@ -85,7 +85,7 @@ class Config extends RedisConfig implements ConfigInterface
      */
     public function getDatabase()
     {
-        return $this->deploymentConfig->get(self::PARAM_DATABASE);
+        return (int) $this->deploymentConfig->get(self::PARAM_DATABASE);
     }
 
     /**
