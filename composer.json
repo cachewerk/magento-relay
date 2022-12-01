@@ -3,12 +3,12 @@
 	"description" : "A Magento 2 module to integrate Relay.",
     "homepage": "https://relay.so",
 	"type" : "magento2-module",
-	"version" : "1.0.0",
+	"version" : "0.1.0",
 	"license" : "MIT",
 	"require" : {
         "php": "^7.3|^7.4|^8.0",
-        "ext-relay": ">=0.3.0",
-        "cachewerk/relay": "*",
+        "ext-relay": ">=0.5.0",
+        "cachewerk/relay": ">=0.5.0",
 		"magento/framework": ">=100.0.0"
 	},
 	"autoload" : {
